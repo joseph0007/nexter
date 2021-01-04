@@ -1,0 +1,41 @@
+*,
+*::after, 
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;  //10px
+    box-sizing: border-box;
+
+    @media only screen and (max-width: $large) {
+        font-size: 50%;  //8px
+    }
+}
+
+body {
+    font-family: $font-primary;
+    //font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.25;
+    font-size: 1.6rem;
+    color: $color-grey-dark-1;
+}
+
+.container {
+    display: grid;
+    //a good way to achieve a square div/grid-cell we can define the height of an element in terms of vw 
+    //which in turn will mean that if vw is 500px then height of that element will be 500px as well
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [sidebar-start] 6rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] 
+                            repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+
+    @media only screen and (max-width: $medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] 
+                            repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+}

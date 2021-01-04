@@ -1,0 +1,72 @@
+.realtors {
+    background-color: $color-secondary;
+    grid-column: col-start 7 / full-end;
+    padding: 6rem 4rem;
+
+    display: grid;
+    grid-template-rows: repeat(4, max-content);
+    grid-template-columns: max-content;
+    justify-content: center;
+    row-gap: 5vh;
+    align-items: center;
+    align-content: center;
+
+    &__heading {
+        justify-self: center;
+
+        @media only screen and (max-width: $medium) {
+            grid-row: 1 / 2;
+            grid-column: 1 / span 3;
+        }  
+
+        @media only screen and (max-width: $small) {
+            grid-column: 1 / 2;
+        }
+    }
+
+    @media only screen and (max-width: $medium) {
+        grid-row: 3 / 4;
+        row-gap: 3vh;
+        grid-column: full-start / -1;
+        grid-template-rows: repeat(2, max-content);
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (max-width: $small) {
+        grid-template-rows: repeat(4, max-content);
+        grid-template-columns: max-content;
+    }
+    
+}
+
+.realtor {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1rem;
+    align-items: center;
+
+    &__image {
+        display: block;
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+    }
+
+    &__text {
+        font-family: $font-display;     
+    }
+
+    &__name {
+        font-size: 1.7rem;
+        color: $color-grey-light-1;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    &__house-sold {
+        font-size: 1rem;
+        color: rgba($color-grey-light-1, 0.7);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
